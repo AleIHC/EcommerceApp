@@ -17,6 +17,11 @@ public class ProductoServiceImpl implements ProductoService {
     private final ProductoRepository productoRepository;
 
     @Override
+    public Producto buscarProducto(String nombreProducto) {
+        return productoRepository.findProductoByNombre(nombreProducto);
+    }
+
+    @Override
     public Producto agregarProducto(Producto nuevoProducto) {
         return productoRepository.save(nuevoProducto);
     }
@@ -35,6 +40,7 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public void eliminarProducto(String nombreProducto) {
+
         productoRepository.deleteProductoByNombre(nombreProducto);
     }
 
